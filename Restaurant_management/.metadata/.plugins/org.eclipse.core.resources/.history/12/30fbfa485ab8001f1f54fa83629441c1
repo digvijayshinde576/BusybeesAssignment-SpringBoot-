@@ -1,0 +1,11 @@
+package com.neo.repo;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.neo.model.Dish;
+
+public interface DishRepo extends JpaRepository<Dish, Integer>{
+
+	public Boolean findByDishName(String dishName);
+	
+}

@@ -1,0 +1,11 @@
+package com.neo.model;
+
+public class Dish {
+	
+	private Integer dishId;
+	
+	private String dishName;
+	
+	private Double dishPrice;
+
+}

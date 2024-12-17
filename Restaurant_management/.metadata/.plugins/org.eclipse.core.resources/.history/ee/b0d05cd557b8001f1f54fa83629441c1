@@ -1,0 +1,27 @@
+package com.neo.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.neo.model.Dish;
+import com.neo.repo.DishRepo;
+
+
+@Service
+public class DishService {
+
+	@Autowired
+	private DishRepo dishRepo;
+
+	public String addDish(Dish dish) {
+
+		if (!dishRepo.findByDishName(dish.getDishName())) {
+			dishRepo.save(dish);
+
+		}
+
+		return null;
+
+	}
+
+}

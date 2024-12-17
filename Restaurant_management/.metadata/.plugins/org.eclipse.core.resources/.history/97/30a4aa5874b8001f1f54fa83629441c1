@@ -1,0 +1,17 @@
+package com.neo.repo;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+
+import com.neo.dto.DishResponse;
+import com.neo.model.Dish;
+
+public interface DishRepo extends JpaRepository<Dish, Integer>{
+
+	public Dish findByDishName(String dishName);
+	
+	
+//	@Query(value = "select dish_id, dish_name ,dish_price from dishes", nativeQuery = true)
+//	public List<Dish> getAllDishes();
+	
+}

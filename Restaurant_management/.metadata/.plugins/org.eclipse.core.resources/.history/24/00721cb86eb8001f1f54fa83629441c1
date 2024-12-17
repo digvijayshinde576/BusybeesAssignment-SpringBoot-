@@ -1,0 +1,17 @@
+package com.neo.dto;
+
+public class DishRequest {
+
+	
+	private String dishName;
+
+	public String getDishName() {
+		return dishName;
+	}
+
+	public void setDishName(String dishName) {
+		this.dishName = dishName;
+	}
+	
+	
+}

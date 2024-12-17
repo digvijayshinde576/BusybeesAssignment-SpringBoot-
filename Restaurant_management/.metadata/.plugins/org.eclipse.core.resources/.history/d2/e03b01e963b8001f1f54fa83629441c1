@@ -1,0 +1,10 @@
+package com.neo.dto;
+
+public class DishResponse {
+
+	private Integer dishId;
+
+	private String dishName;
+
+	private Double dishPrice;
+}

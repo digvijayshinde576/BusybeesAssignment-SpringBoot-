@@ -1,0 +1,27 @@
+package com.neo.dto;
+
+public class DishRequest {
+
+	private Integer quantity;
+	private String dishName;
+	
+	
+
+	public Integer getQuantity() {
+		return quantity;
+	}
+
+	public void setQuntity(Integer quantity) {
+		this.quantity = quantity;
+	}
+
+	public String getDishName() {
+		return dishName;
+	}
+
+	public void setDishName(String dishName) {
+		this.dishName = dishName;
+	}
+	
+	
+}

@@ -1,0 +1,14 @@
+package com.neo.dto;
+
+import java.util.List;
+
+import com.neo.model.Dish;
+
+import jakarta.persistence.OneToMany;
+
+public class OrderRequest {
+	private Integer tableNumber;
+
+	
+	private List<Dish> dishes;
+}

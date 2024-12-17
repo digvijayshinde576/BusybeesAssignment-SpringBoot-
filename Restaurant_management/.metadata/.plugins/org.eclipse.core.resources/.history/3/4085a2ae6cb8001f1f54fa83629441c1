@@ -1,0 +1,7 @@
+package com.neo.dto;
+
+public class DishRequest {
+
+	
+	private String dishName;
+}

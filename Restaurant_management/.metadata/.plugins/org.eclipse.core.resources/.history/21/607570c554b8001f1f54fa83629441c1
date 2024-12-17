@@ -1,0 +1,9 @@
+package com.neo.model;
+
+public class Dish {
+	
+	private String dishName;
+	
+	private Double dishPrice;
+
+}

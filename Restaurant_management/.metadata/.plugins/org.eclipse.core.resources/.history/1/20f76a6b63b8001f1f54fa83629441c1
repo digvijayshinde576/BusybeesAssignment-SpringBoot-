@@ -1,0 +1,5 @@
+package com.neo.dto;
+
+public class DishResponse {
+
+}

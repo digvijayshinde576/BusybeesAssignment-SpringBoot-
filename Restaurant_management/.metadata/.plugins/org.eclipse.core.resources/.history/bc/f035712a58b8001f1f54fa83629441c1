@@ -1,0 +1,5 @@
+package com.neo.exception;
+
+public class DishAlreadyExistException extends Exception {
+
+}

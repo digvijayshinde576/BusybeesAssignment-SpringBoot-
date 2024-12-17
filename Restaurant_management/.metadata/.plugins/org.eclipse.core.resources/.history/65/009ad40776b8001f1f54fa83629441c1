@@ -1,0 +1,16 @@
+package com.neo.model;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name = "payments")
+public class Payment {
+	
+	private Integer paymentId;
+	
+	private Integer tableNumber;
+	
+	private String status;
+
+}

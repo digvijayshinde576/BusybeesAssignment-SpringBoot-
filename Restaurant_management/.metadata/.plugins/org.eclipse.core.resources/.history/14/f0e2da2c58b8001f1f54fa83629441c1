@@ -1,0 +1,26 @@
+package com.neo.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.neo.model.Dish;
+import com.neo.repo.DishRepo;
+
+
+@Service
+public class DishService {
+
+	@Autowired
+	private DishRepo dishRepo;
+
+	public Dish addDish(Dish dish) {
+
+		if (!dishRepo.findByDishName(dish.getDishName())) {
+			return dishRepo.save(dish);
+		}
+
+		return new DishAlreadyExistException("Dish Already exist");
+
+	}
+
+}

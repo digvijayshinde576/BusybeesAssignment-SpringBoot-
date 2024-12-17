@@ -1,0 +1,11 @@
+package com.neo.repo;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.neo.model.Order;
+
+public interface OrderRepo extends JpaRepository<Order, Integer>{
+
+	
+	public Order findByTableNumber(Integer tableNumber);
+}

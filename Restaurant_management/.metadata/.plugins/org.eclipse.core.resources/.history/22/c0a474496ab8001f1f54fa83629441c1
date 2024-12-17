@@ -1,0 +1,30 @@
+package com.neo.controller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.neo.model.Dish;
+import com.neo.service.OrderService;
+
+@RestController
+@RequestMapping("/order")
+public class OrderController {
+	
+	@Autowired
+	private OrderService orderService;
+	
+	@PostMapping("/placeorder/{tablenum}")
+	public ResponseEntity<?> placeNewOrder(@PathVariable("tablenum") Integer tableNum , @RequestBody List<Dish> dishes){
+		
+		return new ResponseEntity<>(orderService.placeNewOrder(tableNum, dishes));
+	}
+	
+
+}

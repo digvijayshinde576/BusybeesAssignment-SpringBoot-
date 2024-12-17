@@ -1,0 +1,36 @@
+package com.neo.service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.GetMapping;
+
+import com.neo.exception.DishAlreadyExistException;
+import com.neo.model.Dish;
+import com.neo.repo.DishRepo;
+
+
+@Service
+public class DishService {
+
+	@Autowired
+	private DishRepo dishRepo;
+
+	public Dish addDish(Dish dish) {
+
+		if (dishRepo.findByDishName(dish.getDishName()) == null) {
+			new DishAlreadyExistException("Dish Already exist");
+			
+		}
+		return dishRepo.save(dish);
+
+	}
+	
+	
+	@GetMapping("/getalldishes")
+	public List<Dish> getAllDishes(){
+		List<Dish> dishes = dishRepo.findAll();
+	}
+
+}
