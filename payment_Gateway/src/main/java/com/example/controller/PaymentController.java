@@ -31,4 +31,9 @@ public class PaymentController {
         paymentService.deleteAllFailedTransaction();
         return new ResponseEntity<>("Successfully Deleted Failed Transaction..... ",HttpStatus.OK);
     }
+
+    @GetMapping("/max")
+    public ResponseEntity<?> getUserIdWithMaxRefundAmount() {
+        return new ResponseEntity<>("UserId With Max Refund Amount Is = "+paymentService.getUserIdWithMaxRefundAmount(),HttpStatus.FOUND);
+    }
 }

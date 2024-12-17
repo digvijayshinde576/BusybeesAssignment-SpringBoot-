@@ -2,6 +2,7 @@ package com.example.service;
 
 import com.example.entity.Transaction;
 import com.example.entity.User;
+import com.example.repository.RefundRepository;
 import com.example.repository.TransactionRepository;
 import com.example.repository.UserRepository;
 import jakarta.transaction.Transactional;
@@ -16,6 +17,9 @@ public class PaymentServiceImpl implements PaymentService{
 
     @Autowired
     private TransactionRepository transactionRepository;
+
+    @Autowired
+    private RefundRepository refundRepository;
 
     @Override
     public User addUser(User user) {
@@ -33,5 +37,10 @@ public class PaymentServiceImpl implements PaymentService{
     @Override
     public void deleteAllFailedTransaction() {
         transactionRepository.deleteByIsSuccessIsFalse();
+    }
+
+    @Override
+    public Long getUserIdWithMaxRefundAmount() {
+        return refundRepository.findUserIdWithMaxRefundAmount();
     }
 }

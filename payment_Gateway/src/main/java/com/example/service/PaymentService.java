@@ -7,4 +7,5 @@ public interface PaymentService {
     User addUser(User user);
     Transaction addTransaction(Long userId,Transaction transaction);
     void deleteAllFailedTransaction();
+    Long getUserIdWithMaxRefundAmount();
 }
