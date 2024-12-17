@@ -15,7 +15,7 @@ public class Transaction {
 
     @ManyToOne
     @JoinColumn(name = "userId")
-   // @JsonBackReference
+    @JsonBackReference
     private User user;
 
     public Transaction() {

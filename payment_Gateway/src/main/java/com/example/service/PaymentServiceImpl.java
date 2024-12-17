@@ -2,15 +2,19 @@ package com.example.service;
 
 import com.example.entity.Transaction;
 import com.example.entity.User;
-<<<<<<< HEAD
+
 import com.example.repository.RefundRepository;
-=======
->>>>>>> f62d505eeb846056fc9cb1173cd950f18fed7268
+
 import com.example.repository.TransactionRepository;
 import com.example.repository.UserRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
+import java.util.List;
 
 @Service
 @Transactional
@@ -21,12 +25,10 @@ public class PaymentServiceImpl implements PaymentService{
     @Autowired
     private TransactionRepository transactionRepository;
 
-<<<<<<< HEAD
+
     @Autowired
     private RefundRepository refundRepository;
 
-=======
->>>>>>> f62d505eeb846056fc9cb1173cd950f18fed7268
     @Override
     public User addUser(User user) {
         return userRepository.save(user);
@@ -44,12 +46,20 @@ public class PaymentServiceImpl implements PaymentService{
     public void deleteAllFailedTransaction() {
         transactionRepository.deleteByIsSuccessIsFalse();
     }
-<<<<<<< HEAD
+
 
     @Override
     public Long getUserIdWithMaxRefundAmount() {
         return refundRepository.findUserIdWithMaxRefundAmount();
     }
-=======
->>>>>>> f62d505eeb846056fc9cb1173cd950f18fed7268
+
+    //Added Paging & Sorting for data Fetching
+    @Override
+    public List<User> getAllUsers() {
+        Pageable pageable = PageRequest.of(1,2, Sort.by("name").ascending());
+        Page<User> users=userRepository.findAll( pageable);
+
+        return users.getContent();
+    }
+
 }

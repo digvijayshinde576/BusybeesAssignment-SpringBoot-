@@ -18,7 +18,7 @@ public class User {
     private  Long accountNumber;
 
     @OneToMany(mappedBy = "user",cascade = CascadeType.ALL,orphanRemoval = true)
-//    @JsonManagedReference
+    @JsonManagedReference
     List<Transaction> transactionList;
 
     public User() {
