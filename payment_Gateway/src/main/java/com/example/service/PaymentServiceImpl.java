@@ -8,6 +8,7 @@ import com.example.repository.RefundRepository;
 import com.example.repository.TransactionRepository;
 import com.example.repository.UserRepository;
 import jakarta.transaction.Transactional;
+import org.apache.commons.lang3.tuple.Pair;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -55,11 +56,13 @@ public class PaymentServiceImpl implements PaymentService{
 
     //Added Paging & Sorting for data Fetching
     @Override
-    public List<User> getAllUsers() {
-        Pageable pageable = PageRequest.of(1,2, Sort.by("name").ascending());
+    public Pair<List<User>, Boolean> getAllUsers(int pageNumber, int pageSize) {
+        Pageable pageable = PageRequest.of(pageNumber,pageSize, Sort.by("name").ascending());
         Page<User> users=userRepository.findAll( pageable);
+        List<User> content = users.getContent();
+        Boolean aboolean = users.hasNext();
 
-        return users.getContent();
+        return Pair.of(content,aboolean);
     }
 
 }
