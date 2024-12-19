@@ -50,14 +50,14 @@ public class PaymentController {
         int pageSize=1;
         List<List<User>> allUsers=new ArrayList<>();
 
-        while ((true)) {
+        while (true) {
             Pair<List<User>, Boolean> result=paymentService.getAllUsers(pageNumber,pageSize);
             List<User> userList=result.getLeft();
             Boolean aBoolean = result.getRight();
 
             if(userList.isEmpty()) break;
             allUsers.add(userList);
-            if(aBoolean) break;
+            if(!aBoolean) break;
             pageNumber++;
 
         }
